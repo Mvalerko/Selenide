@@ -1,6 +1,8 @@
 package ru.netology.web;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -27,4 +29,9 @@ public class CustomData {
 
     }
 
+    protected String futureLocalDate (int addDayOpt) {
+
+            return LocalDate.now().plusDays(addDayOpt).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+
+    }
 }

@@ -18,12 +18,10 @@ class RegistrationTest {
     //@Disabled
     @Test
     void positiveScriptRegistration() {
-        Configuration.headless = true;
+        //Configuration.headless = true;
         open("http://localhost:9999");
         $("[placeholder='Город']").setValue("Владимир");
-        for(int i = 0; i < 10; i++) {
-            $("[data-test-id='date'] input").sendKeys(Keys.BACK_SPACE);
-        }
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(customData.future(5));
         $("[name='name']").setValue("Валерко Михаил");
         $("[name='phone']").setValue("+79032423264");
@@ -34,13 +32,11 @@ class RegistrationTest {
 
     @Test
     void positiveScriptRegistrationInteractive() {
-        Configuration.headless = true;
+        //Configuration.headless = true;
         open("http://localhost:9999");
         $("[placeholder='Город']").setValue("Вл");
         $$("span").find(exactText("Владикавказ")).click();
-        for(int i = 0; i < 10; i++) {
-            $("[data-test-id='date'] input").sendKeys(Keys.BACK_SPACE);
-        }
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(customData.future(5));
         $("[name='name']").setValue("Валерко Михаил");
         $("[name='phone']").setValue("+79032423264");
